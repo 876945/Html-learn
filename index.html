@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Web Development in 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            background-clip: text;
+-webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(56, 189, 248, 0.2), 0 4px 6px -2px rgba(56, 189, 248, 0.1);
+        }
+        .tool-logo {
+            transition: transform 0.3s ease;
+        }
+        .tool-logo:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-800">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold gradient-text">DevJourney 2025</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#frontend" class="text-slate-300 hover:text-sky-400 transition-colors">Frontend</a>
+                <a href="#backend" class="text-slate-300 hover:text-sky-400 transition-colors">Backend</a>
+                <a href="#tools" class="text-slate-300 hover:text-sky-400 transition-colors">Tools</a>
+                <a href="#ai" class="text-slate-300 hover:text-sky-400 transition-colors">AI in Dev</a>
+            </div>
+            <a href="#start" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-5 py-2 rounded-lg transition-colors">Get Started</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Hero Section -->
+        <section class="text-center py-20">
+            <h1 class="text-4xl md:text-6xl font-black mb-4 leading-tight">
+                Learn <span class="gradient-text">Web Development</span> in 2025
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-8">
+                Your complete guide to mastering the modern web. From foundational languages to AI-powered tools, start your journey here.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#start" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105">Start Learning</a>
+                <a href="#roadmap" class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105">View Roadmap</a>
+            </div>
+        </section>
+
+        <!-- Roadmap Intro Section -->
+        <section id="roadmap" class="py-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-2">The 2025 Web Developer Roadmap</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Web development is constantly evolving. Here’s a breakdown of the essential skills and tools you need for this year.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-slate-800 p-8 rounded-xl">
+                     <div class="text-sky-400 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Frontend</h3>
+                    <p class="text-slate-400">Crafting beautiful, responsive, and interactive user interfaces that users love to engage with.</p>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-xl">
+                    <div class="text-sky-400 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Backend</h3>
+                    <p class="text-slate-400">Building the server-side logic, databases, and APIs that power the web applications from behind the scenes.</p>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-xl">
+                     <div class="text-sky-400 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">DevOps & Tools</h3>
+                    <p class="text-slate-400">Mastering the essential tools and practices that streamline development, testing, and deployment.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frontend Section -->
+        <section id="frontend" class="py-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-extrabold gradient-text mb-2">Frontend Development</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Where design meets code. Build what the user sees and interacts with.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- HTML Card -->
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-3 text-white">HTML5</h3>
+                    <p class="text-slate-400 mb-4">The backbone of every webpage. Learn semantic markup for better structure and accessibility.</p>
+                    <span class="font-semibold text-sky-400">Core of the web.</span>
+                </div>
+                <!-- CSS Card -->
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-3 text-white">CSS3 & Frameworks</h3>
+                    <p class="text-slate-400 mb-4">Style your websites with modern CSS. Master Flexbox, Grid, and frameworks like Tailwind CSS.</p>
+                    <span class="font-semibold text-sky-400">Styling and layout.</span>
+                </div>
+                <!-- JavaScript Card -->
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-3 text-white">JavaScript (ES2025)</h3>
+                    <p class="text-slate-400 mb-4">The language of the web. Learn modern features, async operations, and DOM manipulation.</p>
+                    <span class="font-semibold text-sky-400">Interactivity engine.</span>
+                </div>
+                <!-- React Card -->
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-3 text-white">React & Next.js</h3>
+                    <p class="text-slate-400 mb-4">Build powerful single-page applications and server-rendered sites with the most popular library.</p>
+                    <span class="font-semibold text-sky-400">Component-based UI.</span>
+                </div>
+                <!-- Vue Card -->
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-3 text-white">Vue & Nuxt.js</h3>
+                    <p class="text-slate-400 mb-4">An approachable and progressive framework that's a joy to use for projects of any scale.</p>
+                    <span class="font-semibold text-sky-400">The progressive framework.</span>
+                </div>
+                <!-- Svelte Card -->
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-3 text-white">Svelte & SvelteKit</h3>
+                    <p class="text-slate-400 mb-4">A radical new approach to building user interfaces. A compiler that ships no framework runtime.</p>
+                    <span class="font-semibold text-sky-400">Cybernetically enhanced apps.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Backend Section -->
+        <section id="backend" class="py-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-extrabold gradient-text mb-2">Backend Development</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">The engine room of the web. Manage data, logic, and server communication.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                 <!-- Node.js Card -->
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-3 text-white">Node.js & Express</h3>
+                    <p class="text-slate-400 mb-4">Use JavaScript on the server. Build fast, scalable network applications with Express.</p>
+                    <span class="font-semibold text-sky-400">JavaScript everywhere.</span>
+                </div>
+                 <!-- Python Card -->
+                <div class="card p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-3 text-white">Python (Django/Flask)</h3>
+                    <p class="text-slate-400 mb-4">Versatile and powerful. Ideal for web development, data science, and scripting.</p>
+                    <span class="font-semibold text-sky-400">Versatile and readable.</span>
+                </div>
+                 <!-- Go Card -->
+                 <div class="card p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-3 text-white">Go</h3>
+                    <p class="text-slate-400 mb-4">A statically typed, compiled language designed for concurrency and performance.</p>
+                    <span class="font-semibold text-sky-400">Simple and performant.</span>
+                </div>
+                 <!-- Databases Card -->
+                 <div class="card p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-3 text-white">Databases</h3>
+                    <p class="text-slate-400 mb-4">Learn to manage data with both SQL (PostgreSQL) and NoSQL (MongoDB, Redis) databases.</p>
+                    <span class="font-semibold text-sky-400">Data persistence.</span>
+                </div>
+                <!-- APIs Card -->
+                 <div class="card p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-3 text-white">APIs</h3>
+                    <p class="text-slate-400 mb-4">Master REST and GraphQL to create robust communication channels for your applications.</p>
+                    <span class="font-semibold text-sky-400">Application communication.</span>
+                </div>
+                 <!-- Authentication Card -->
+                 <div class="card p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-3 text-white">Authentication</h3>
+                    <p class="text-slate-400 mb-4">Implement secure user authentication with methods like JWT, OAuth 2.0, and Passkeys.</p>
+                    <span class="font-semibold text-sky-400">Secure user access.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Essential Tools Section -->
+        <section id="tools" class="py-20">
+             <div class="text-center mb-12">
+                <h2 class="text-4xl font-extrabold gradient-text mb-2">Essential Developer Tools</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">The right tools make you a more efficient and effective developer.</p>
+            </div>
+            <div class="bg-slate-800 rounded-xl p-8 md:p-12">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="flex flex-col items-center">
+                        <img src="https://placehold.co/80x80/1e293b/38bdf8?text=Git" alt="Git Logo" class="h-20 w-20 mb-3 tool-logo rounded-full">
+                        <h4 class="font-bold text-lg">Git & GitHub</h4>
+                        <p class="text-sm text-slate-400">Version control is non-negotiable.</p>
+                    </div>
+                     <div class="flex flex-col items-center">
+                        <img src="https://placehold.co/80x80/1e293b/38bdf8?text=VS+Code" alt="VS Code Logo" class="h-20 w-20 mb-3 tool-logo rounded-full">
+                        <h4 class="font-bold text-lg">VS Code</h4>
+                        <p class="text-sm text-slate-400">The most popular code editor.</p>
+                    </div>
+                     <div class="flex flex-col items-center">
+                        <img src="https://placehold.co/80x80/1e293b/38bdf8?text=Docker" alt="Docker Logo" class="h-20 w-20 mb-3 tool-logo rounded-full">
+                        <h4 class="font-bold text-lg">Docker</h4>
+                        <p class="text-sm text-slate-400">Containerize your applications.</p>
+                    </div>
+                     <div class="flex flex-col items-center">
+                        <img src="https://placehold.co/80x80/1e293b/38bdf8?text=CI/CD" alt="CI/CD Logo" class="h-20 w-20 mb-3 tool-logo rounded-full">
+                        <h4 class="font-bold text-lg">CI/CD</h4>
+                        <p class="text-sm text-slate-400">Automate your deployments.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI in Development Section -->
+        <section id="ai" class="py-20">
+            <div class="card rounded-xl overflow-hidden md:flex items-center">
+                <div class="md:w-1/2 p-8 md:p-12">
+                    <h2 class="text-3xl font-bold mb-4 text-white">The AI Revolution in Code</h2>
+                    <p class="text-slate-400 mb-6">AI is not just a buzzword; it's your new pair programmer. Tools like GitHub Copilot, v0.dev, and others are transforming how we write, debug, and ship code. Embrace AI to accelerate your workflow, generate boilerplate, and solve complex problems faster.</p>
+                    <a href="#" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg transition-colors">Explore AI Tools</a>
+                </div>
+                <div class="md:w-1/2 h-64 md:h-auto">
+                    <img src="https://placehold.co/600x400/0f172a/e2e8f0?text=AI+in+Development" alt="AI in Development" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+   <div class="video-container">
+    <iframe 
+        src="https://www.youtube.com/embed/Y9bu4TcI83s" 
+        title="My YouTube Video" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
+
+<style>
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+}
+</style>
+
+
+        <!-- Get Started Section -->
+        <section id="start" class="py-20 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Start Your Journey?</h2>
+            <p class="text-slate-400 max-w-xl mx-auto mb-8">Stop waiting and start building. The best time to learn was yesterday. The second best time is now.</p>
+           <a href="ff.html" class="bg-gradient-to-r from-sky-500 to-indigo-500 text-white font-extrabold py-4 px-10 rounded-lg text-lg transform hover:scale-105 transition-transform inline-block">
+    Begin Your First Project
+</a>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-400">
+            <p>&copy; 2025 DevJourney. All rights reserved.</p>
+            <p class="text-sm mt-2">Built with passion for the future of web development.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

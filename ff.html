@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Code Editor</title>
+    <style>
+        /* --- Basic Setup & Fonts --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: #165ac083;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* --- Header & Controls --- */
+        .header {
+            background-color: #000000a9;
+            padding: 12px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            flex-shrink: 0;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.6em;
+            color: #0d6efd;
+        }
+
+        .controls .btn {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-left: 10px;
+            font-weight: 500;
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+        }
+
+        .controls .btn:hover {
+            background-color: #0b5ed7;
+        }
+        
+        .controls .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* --- Main Editor Layout --- */
+        .editor-container {
+            display: flex;
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
+        .pane {
+            flex: 1; /* Each pane takes 50% width */
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        
+        .pane h2 {
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        /* --- Code Editor Textarea --- */
+        #html-code {
+            flex-grow: 1;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+            font-size: 16px;
+            resize: none;
+            background-color: #282c34;
+            color: #abb2bf;
+            outline: none;
+            line-height: 1.5;
+        }
+        
+        #html-code:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+        }
+
+        /* --- Live Preview Iframe --- */
+        #preview-frame {
+            flex-grow: 1;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Live Editor 📝</h1>
+        <div class="controls">
+            <label for="file-input" class="btn">📂 Open File</label>
+            <input type="file" id="file-input" accept=".html,.htm" style="display: none;">
+            
+            <button id="download-btn" class="btn">💾 Download HTML</button>
+        </div>
+    </header>
+
+    <main class="editor-container">
+        <div class="pane code-editor">
+            <h2>HTML Code</h2>
+            <textarea id="html-code" placeholder="<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p>Start coding here...</p>
+</body>
+</html>"></textarea>
+        </div>
+
+        <div class="pane live-preview">
+            <h2>Live Preview</h2>
+            <iframe id="preview-frame"></iframe>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const htmlCode = document.getElementById('html-code');
+            const previewFrame = document.getElementById('preview-frame');
+            const fileInput = document.getElementById('file-input');
+            const downloadBtn = document.getElementById('download-btn');
+
+            /**
+             * Updates the iframe's content with the code from the textarea.
+             * This acts as the "Live Server" feature.
+             */
+            function updatePreview() {
+                const code = htmlCode.value;
+                const iframeDoc = previewFrame.contentWindow.document;
+                iframeDoc.open();
+                iframeDoc.write(code);
+                iframeDoc.close();
+            }
+
+            // EVENT LISTENERS
+
+            // 1. Update preview in real-time as the user types
+            htmlCode.addEventListener('input', updatePreview);
+
+            // 2. Open File: Read the selected file and load its content
+            fileInput.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                if (!file) {
+                    return; // No file selected
+                }
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    // Set the textarea content and update the preview
+                    htmlCode.value = e.target.result;
+                    updatePreview();
+                };
+                reader.readAsText(file);
+                
+                // Reset file input to allow opening the same file again
+                event.target.value = ''; 
+            });
+
+            // 3. Download File: Create and download the current code as an HTML file
+            downloadBtn.addEventListener('click', () => {
+                const codeToDownload = htmlCode.value;
+                
+                // Create a "blob" which is a file-like object
+                const blob = new Blob([codeToDownload], { type: 'text/html' });
+
+                // Create a temporary URL for the blob
+                const url = URL.createObjectURL(blob);
+                
+                // Create a temporary anchor (<a>) tag to trigger the download
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'index.html'; // The default filename for download
+                document.body.appendChild(a); // Add it to the page
+                a.click(); // Programmatically click the link to start the download
+                
+                // Clean up by removing the temporary link and URL
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+            
+            // Initial load: run the preview once with placeholder content
+            updatePreview();
+        });
+    </script>
+    <div class="button-container">
+    <!-- YouTube Subscribe -->
+    <button class="b1">
+        <a href="https://youtube.com/@sboss-f?si=HzXM_ETasbB3X-_l" target="_blank">Subscribe</a>
+    </button>
+
+    <!-- Go to Main Page -->
+    <button class="b1">
+        <a href="index.html">Go to Main Page</a>
+    </button>
+</div>
+<style>
+    .b1 {
+        display: inline-block;
+        background-color: #0d6efd;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 18px;
+        font-size: 1em;
+        cursor: pointer;
+        margin: 10px; /* space between buttons */
+        text-align: center;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    .b1:hover {
+        background-color: #0b5ed7;
+    }
+
+    .b1 a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .button-container {
+        text-align: center; /* center all buttons */
+        margin: 20px 0;
+    }
+</style>
+
+</body>
+</html>
